@@ -1,0 +1,621 @@
+{
+	"info": {
+		"_postman_id": "9bc8e3b8-ee92-4a75-a897-0f7b67a0140d",
+		"name": "Task-manager tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26673670"
+	},
+	"item": [
+		{
+			"name": "Single task POST with random date(today+7days)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"\r",
+							"var startTime = moment().add(1, 'd');\r",
+							"var startTime2 = moment().add(1, 'd');\r",
+							"var startTime3 = moment().add(3, 'd');\r",
+							"var startTime4 = moment().add(Math.floor(Math.random() * 6), 'd');\r",
+							"\r",
+							"pm.environment.set('start', startTime.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start2', startTime2.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start3', startTime3.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start4', startTime4.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Has task update response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"dolore\",\r\n  \"description\": \"simple task\",\r\n  \"taskStatus\": \"NEW\",\r\n  \"duration\": \"0\",\r\n  \"executionTime\": \"{{start4}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single task POST with random date(today+7days) Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"\r",
+							"var startTime = moment().add(1, 'd');\r",
+							"var startTime2 = moment().add(1, 'd');\r",
+							"var startTime3 = moment().add(3, 'd');\r",
+							"var startTime4 = moment().add(Math.floor(Math.random() * 6), 'd');\r",
+							"\r",
+							"pm.environment.set('start', startTime.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start2', startTime2.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start3', startTime3.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start4', startTime4.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Has task update response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"dolore\",\r\n  \"description\": \"simple task\",\r\n  \"taskStatus\": \"NEW\",\r\n  \"duration\": \"0\",\r\n  \"executionTime\": \"{{start4}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single task POST with random date(today+7days) Copy 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"\r",
+							"var startTime = moment().add(1, 'd');\r",
+							"var startTime2 = moment().add(1, 'd');\r",
+							"var startTime3 = moment().add(3, 'd');\r",
+							"var startTime4 = moment().add(Math.floor(Math.random() * 6), 'd');\r",
+							"\r",
+							"pm.environment.set('start', startTime.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start2', startTime2.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start3', startTime3.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start4', startTime4.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Has task update response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"dolore\",\r\n  \"description\": \"simple task\",\r\n  \"taskStatus\": \"NEW\",\r\n  \"duration\": \"0\",\r\n  \"executionTime\": \"{{start4}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single task POST with random date(today+7days) Copy 3",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"\r",
+							"var startTime = moment().add(1, 'd');\r",
+							"var startTime2 = moment().add(1, 'd');\r",
+							"var startTime3 = moment().add(3, 'd');\r",
+							"var startTime4 = moment().add(Math.floor(Math.random() * 6), 'd');\r",
+							"\r",
+							"pm.environment.set('start', startTime.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start2', startTime2.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start3', startTime3.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start4', startTime4.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Has task update response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"dolore\",\r\n  \"description\": \"simple task\",\r\n  \"taskStatus\": \"NEW\",\r\n  \"duration\": \"0\",\r\n  \"executionTime\": \"{{start4}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single task POST with random date(today+7days) Copy 4",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"\r",
+							"var startTime = moment().add(1, 'd');\r",
+							"var startTime2 = moment().add(1, 'd');\r",
+							"var startTime3 = moment().add(3, 'd');\r",
+							"var startTime4 = moment().add(Math.floor(Math.random() * 6), 'd');\r",
+							"\r",
+							"pm.environment.set('start', startTime.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start2', startTime2.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start3', startTime3.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start4', startTime4.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Has task update response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"dolore\",\r\n  \"description\": \"simple task\",\r\n  \"taskStatus\": \"NEW\",\r\n  \"duration\": \"0\",\r\n  \"executionTime\": \"{{start4}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single task POST with random date(today+7days) Copy 5",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');\r",
+							"\r",
+							"var startTime = moment().add(1, 'd');\r",
+							"var startTime2 = moment().add(1, 'd');\r",
+							"var startTime3 = moment().add(3, 'd');\r",
+							"var startTime4 = moment().add(Math.floor(Math.random() * 6), 'd');\r",
+							"\r",
+							"pm.environment.set('start', startTime.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start2', startTime2.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start3', startTime3.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							"pm.environment.set('start4', startTime4.format('YYYY-MM-DDTHH:mm:ss'));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Has task update response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"dolore\",\r\n  \"description\": \"simple task\",\r\n  \"taskStatus\": \"NEW\",\r\n  \"duration\": \"0\",\r\n  \"executionTime\": \"{{start4}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all tasks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Test list tasks response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length, 'List length must be 6').to.eql(6);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH task with id 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Has task update response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"pm.test(\"Test task 'id' field\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property('id');\r",
+							"    pm.expect(jsonData.id, '\"id\" must be 4').to.eql(4);\r",
+							"});\r",
+							"pm.test(\"Test task 'name' field\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property('name');\r",
+							"    pm.expect(jsonData.name, 'name must be \"succesfully patched\"').to.eql(\"succesfully patched\");\r",
+							"});\r",
+							"pm.test(\"Test task 'taskStatus' field\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property('taskStatus');\r",
+							"    pm.expect(jsonData.taskStatus, 'taskStatus must be \"IN_PROGRESS\"').to.eql(\"IN_PROGRESS\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"4\",\r\n  \"name\": \"succesfully patched\",\r\n  \"description\": \"succesfully patched\",\r\n  \"taskStatus\": \"IN_PROGRESS\",\r\n  \"duration\": \"666\",\r\n  \"startTime\": \"2023-11-09T01:12:01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tasks/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE task id 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tasks/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "set status COMPLETED for task id 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Has task update response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"pm.test(\"Test task 'taskStatus' field\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property('taskStatus');\r",
+							"    pm.expect(jsonData.taskStatus, 'taskStatus must be \"COMPLETED\"').to.eql(\"COMPLETED\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"2\",\r\n    \"taskStatus\":\"COMPLETED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tasks/set-status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks",
+						"set-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all tasks after deletion task 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.be.ok;\r",
+							"});\r",
+							"pm.test(\"Test list task response\", function () {\r",
+							"    pm.response.to.be.withBody;\r",
+							"    pm.response.to.be.json;\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length, 'List length must be 5').to.eql(5);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
